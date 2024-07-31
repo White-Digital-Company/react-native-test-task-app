@@ -9,7 +9,9 @@
     "noUnusedParameters": true,
     "baseUrl": "src",
     "paths": {
-      "@screens/*": ["screens/*"],
+      "@router/*": ["router/*"],
+      // "@router": ["router/index"],
+      // "@screens/*": ["screens/*"],
       "@screens": ["screens/index"],
       "@api/*": ["common/api/*"],
     }

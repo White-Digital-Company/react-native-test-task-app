@@ -1,9 +1,9 @@
 // import '@i18n'
-import RootRouter from '@/screens/RootRouter'
-import { NavigationContainer } from '@react-navigation/native'
+import RootRouter from './src/router/RootRouter'
 import { StatusBar } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { QueryCache, QueryClient, QueryClientProvider } from 'react-query'
 
 const Root = () => {
   return (
@@ -14,14 +14,36 @@ const Root = () => {
 }
 
 const App = () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        keepPreviousData: true,
+        refetchOnReconnect: true,
+        cacheTime: Number.POSITIVE_INFINITY,
+      },
+    },
+    queryCache: new QueryCache({
+      onError: async (error: any, query) => {
+        // 🎉 only show error if we already have data in the cache
+        // which indicates a failed background update
+        if (query.state.data !== undefined) {
+          console.error(`Something went wrong: ${error.message}`)
+        }
+        if (Boolean(error.response) && error.response.status === 401) {
+          console.log(error.response.status, '🟡 query')
+          // useAuthStore.getState().setToken(false);
+        }
+      },
+    }),
+  })
   return (
     <SafeAreaProvider>
-      <StatusBar backgroundColor="transparent" translucent />
-      <GestureHandlerRootView>
-        <NavigationContainer>
+      <QueryClientProvider client={queryClient}>
+        <StatusBar backgroundColor="transparent" translucent />
+        <GestureHandlerRootView>
           <Root />
-        </NavigationContainer>
-      </GestureHandlerRootView>
+        </GestureHandlerRootView>
+      </QueryClientProvider>
     </SafeAreaProvider>
   )
 }
