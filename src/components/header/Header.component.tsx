@@ -1,5 +1,8 @@
+import getIcon from '../../utils/get-icon.util'
+import DefaultButton from '../../components/button/default-button.component'
 import { UseNavigation } from '../../hooks/Navigation.hook'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
+import { IconEnum } from '../../types/icon.type'
 
 interface IProps {
   title?: string
@@ -8,14 +11,18 @@ interface IProps {
 
 const Header = ({ title, isGoBack }: IProps) => {
   const { goBack } = UseNavigation()
+  const BackArrow = getIcon(IconEnum.BACK_ARROW)
   return (
-    <View className="bg-green-200 h-14 w-full px-6">
+    <View className="h-16 w-full flex">
       {isGoBack && (
-        <TouchableOpacity onPress={goBack}>
-          <Text>Go back</Text>
-        </TouchableOpacity>
+        <DefaultButton
+          onPress={goBack}
+          styleClassName="bg-white w-16 h-16 rounded-full items-center justify-center"
+        >
+          <BackArrow />
+        </DefaultButton>
       )}
-      {title && <Text className="mx-auto mt-auto">{title}</Text>}
+      {title && <Text className="m-auto">{title}</Text>}
     </View>
   )
 }
