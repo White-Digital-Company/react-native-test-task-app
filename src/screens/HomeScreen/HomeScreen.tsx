@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 const HomeScreen = () => {
   const { goToActivity } = UseNavigation()
   return (
-    <SafeAreaView className="flex-1 items-center flex-col bg-red-300">
+    <SafeAreaView className="flex-1 items-center flex-col bg-red-300 px-6">
       <Header title="Activities" />
       <View className="flex-1 justify-center items-center">
         <Text>Hello, developer!</Text>
