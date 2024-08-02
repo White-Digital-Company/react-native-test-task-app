@@ -32,7 +32,7 @@ const ActivityContainer = ({ activity, onPress }: IProps) => {
             <StarIcon />
             <Text className={`${TextStyles.xs}`}>{activity.rating}</Text>
           </View>
-          <View className={'flex-row'}>
+          <View className={'flex-row items-end'}>
             <Text className={'font-abel'}>{['$', activity.price]}</Text>
             <Text className={`${TextStyles.xs} text-dusty-gray`}>
               {text.perNight}
