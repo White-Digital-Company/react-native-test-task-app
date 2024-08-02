@@ -3,6 +3,7 @@ import Header from '../../components/header/Header.component'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { text } from '../../shared/text/text'
 import DefaultButton from '../../components/button/default-button.component'
+import { TextStyles } from '../../shared/styles/text.styles'
 
 const ActivityScreen = () => {
   return (
@@ -12,9 +13,7 @@ const ActivityScreen = () => {
         <Text>ActivityScreen</Text>
       </View>
       <DefaultButton onPress={() => {}}>
-        <Text className="text-white font-normal text-base font-[abel]">
-          {text.addToFav}
-        </Text>
+        <Text className={`text-white ${TextStyles.base}`}>{text.addToFav}</Text>
       </DefaultButton>
     </SafeAreaView>
   )

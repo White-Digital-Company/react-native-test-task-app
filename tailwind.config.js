@@ -4,7 +4,17 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        abel: ['Abel', 'sans-serif'],
+        abel: ['Abel-Regular', 'sans-serif'],
+      },
+      height: {
+        34: '139px',
+      },
+      borderRadius: {
+        default: '20px',
+      },
+      colors: {
+        alabaster: '#F7F7F7',
+        'dusty-gray': '#979797',
       },
     },
   },
