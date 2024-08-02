@@ -1,6 +1,7 @@
 {
   "extends": "@react-native/typescript-config/tsconfig.json",
   "strict": true,
+  "jsx": "preserve",
   "compilerOptions": {
     "resolveJsonModule": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -11,7 +12,8 @@
     "paths": {
       "@screens/*": ["screens/*"],
       "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
+      "@components": ["components/index"],
+      "@api": ["api/index"],
     }
   }
 }
