@@ -50,9 +50,7 @@ export const HomeScreen = () => {
   }
 
   return (
-    <SafeAreaView
-      style={{ flex: 1, paddingHorizontal: 10, backgroundColor: '#fff' }}
-    >
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Activities</Text>
       <ActivitiesList items={data} onPress={navigateToDetails} />
     </SafeAreaView>
