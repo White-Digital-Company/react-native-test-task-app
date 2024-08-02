@@ -13,7 +13,7 @@ const Header = ({ title, isGoBack }: IProps) => {
   const { goBack } = UseNavigation()
   const BackArrow = getIcon(IconEnum.BACK_ARROW)
   return (
-    <View className="h-16 w-full flex relative">
+    <View className="h-16 w-full flex relative z-50">
       {isGoBack && (
         <DefaultButton
           onPress={goBack}
