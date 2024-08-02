@@ -27,7 +27,6 @@ export const UseFavorites = (): TUseFavoritesReturn => {
                   : activityEl,
               ),
             )
-            console.log(activities.map(el => el.isFav))
           }
         },
         onError: (error: any) => {
