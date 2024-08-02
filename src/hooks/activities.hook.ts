@@ -24,9 +24,15 @@ export const UseActivities = (): TUseActivitiesReturn => {
       getError(error)
     },
     onSuccess: data => {
-      setActivities(data)
+      setActivities(
+        data.map(activityEl => {
+          return { ...activityEl, isFav: Boolean(activityEl.isFav) }
+        }),
+      )
     },
     retry: false,
+    refetchOnMount: false,
+    refetchOnWindowFocus: false,
   })
   const handleGetActivityById = (id: number) => {
     setActivity(activities.find(activityEl => activityEl.id === id))

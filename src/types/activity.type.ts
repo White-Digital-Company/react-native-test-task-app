@@ -6,5 +6,5 @@ export interface IActivity {
   location: string
   price: number
   rating: number
-  isFav?: boolean
+  isFav: boolean
 }
