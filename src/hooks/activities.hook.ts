@@ -1,18 +1,19 @@
-/* eslint-disable unicorn/consistent-function-scoping */
-// import { IActivity } from '../types/activity.type'
-
 import { useQuery } from 'react-query'
 import { QUERY_KEYS } from '../shared/consts/app-keys.const'
-import { activityService } from 'services/activity/activity.service'
+import { activityService } from '../services/activity/activity.service'
 import { isAxiosError } from 'axios'
 import { getError } from '../utils/get-error.util'
+import { useActivityStore } from '../store/activities.store'
+import { IActivity } from '../types/activity.type'
 
 type TUseActivitiesReturn = {
-  //   activities: IActivity[]
-  //   activity: IActivity
+  activities: IActivity[]
+  activity?: IActivity
   handleGetActivityById: (id: number) => void
 }
 export const UseActivities = (): TUseActivitiesReturn => {
+  const { activity, activities, setActivities, setActivity } =
+    useActivityStore()
   useQuery({
     queryKey: [QUERY_KEYS.ACTIVITIES],
     queryFn: () => activityService.getAllActivities(),
@@ -22,8 +23,13 @@ export const UseActivities = (): TUseActivitiesReturn => {
       }
       getError(error)
     },
-    onSuccess: () => {},
+    onSuccess: data => {
+      setActivities(data)
+    },
+    retry: false,
   })
-  const handleGetActivityById = (id: number) => {}
-  return { handleGetActivityById }
+  const handleGetActivityById = (id: number) => {
+    setActivity(activities.find(activityEl => activityEl.id === id))
+  }
+  return { handleGetActivityById, activity, activities }
 }

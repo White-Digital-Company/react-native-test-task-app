@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/no-array-for-each */
 /* eslint-disable no-extra-boolean-cast */
-// import {isAxiosError} from 'axios';
+
 import { BACKEND_URL } from '@env'
 
 import { HttpStatusCode, type IHttpClient } from './types'
@@ -15,7 +15,6 @@ export class HttpService {
   ) {
     this.fetchingService = fetchingService
     this.baseUrl = baseUrl
-    console.log(this.baseUrl)
   }
 
   public createQueryLink(base: string, args: IMap): string {
