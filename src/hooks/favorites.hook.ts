@@ -19,14 +19,15 @@ export const UseFavorites = (): TUseFavoritesReturn => {
       {
         onSuccess: async () => {
           if (activity) {
-            setActivity({ ...activity, isFav: activity.isFav ? false : true })
+            setActivity({ ...activity, isFav: !activity.isFav })
             setActivities(
               activities.map(activityEl =>
                 activityEl.id === activity.id
-                  ? { ...activityEl, isFav: activity.isFav ? false : true }
+                  ? { ...activityEl, isFav: !activity.isFav }
                   : activityEl,
               ),
             )
+            console.log(activities.map(el => el.isFav))
           }
         },
         onError: (error: any) => {
