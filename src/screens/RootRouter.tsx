@@ -2,8 +2,9 @@ import {
   TransitionPresets,
   createStackNavigator,
 } from '@react-navigation/stack'
-import HomeScreen from './HomeScreen'
+import { HomeScreen } from './HomeScreen/HomeScreen'
 import { RootStackParamList } from './types/root'
+import { ActivityScreen } from './ActivityScreen/ActivityScreen'
 
 const Stack = createStackNavigator<RootStackParamList>()
 
@@ -22,6 +23,11 @@ const RootRouter = () => {
         name="Home"
         component={HomeScreen}
         options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="Activity"
+        component={ActivityScreen}
+        options={{ headerTransparent: true }}
       />
     </Stack.Navigator>
   )

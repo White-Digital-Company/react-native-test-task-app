@@ -1,32 +1,43 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import { styles } from './styles'
 import { Images } from '../../assets'
+import { ActivityItemProps } from './ActivityItemProps'
 
-export const ActivityItem = () => {
+export const ActivityItem = ({
+  itemId,
+  photoUrl,
+  name,
+  location,
+  price,
+  rating,
+  ...props
+}: ActivityItemProps) => {
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/10/15/09/istock-483629308.jpg',
-        }}
-      />
-      <View style={styles.contentContainer}>
-        <View style={[styles.row, styles.content]}>
-          <Text>Activity Name</Text>
-          <View style={styles.row}>
-            <Image style={styles.logo} source={Images.starImage} />
-            <Text>4.7</Text>
+    <Pressable {...props}>
+      <View style={styles.container}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: photoUrl,
+          }}
+        />
+        <View style={styles.contentContainer}>
+          <View style={[styles.row, styles.content]}>
+            <Text>{name}</Text>
+            <View style={styles.row}>
+              <Image style={styles.logo} source={Images.starImage} />
+              <Text>{rating}</Text>
+            </View>
           </View>
-        </View>
-        <View style={[styles.row, styles.content]}>
-          <View style={styles.row}>
-            <Image style={styles.logo} source={Images.pinImage} />
-            <Text>Location</Text>
+          <View style={[styles.row, styles.content]}>
+            <View style={styles.row}>
+              <Image style={styles.logo} source={Images.pinImage} />
+              <Text>{location}</Text>
+            </View>
+            <Text>${price}/ night</Text>
           </View>
-          <Text>$123.00/ night</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   )
 }
