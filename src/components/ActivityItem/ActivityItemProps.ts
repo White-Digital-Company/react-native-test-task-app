@@ -7,4 +7,5 @@ export interface ActivityItemProps extends PressableProps {
   location: string
   price: number
   rating: number
+  isFavorite: boolean
 }

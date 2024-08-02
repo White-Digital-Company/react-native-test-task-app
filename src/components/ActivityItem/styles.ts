@@ -4,6 +4,11 @@ export const styles = StyleSheet.create({
   container: {
     marginBottom: 10,
   },
+  favoriteImage: {
+    position: 'absolute',
+    top: 20,
+    left: 20,
+  },
   image: {
     width: '100%',
     height: '60%',

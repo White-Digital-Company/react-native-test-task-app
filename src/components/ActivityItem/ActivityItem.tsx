@@ -9,6 +9,7 @@ export const ActivityItem = ({
   location,
   price,
   rating,
+  isFavorite,
   ...props
 }: ActivityItemProps) => {
   return (
@@ -20,6 +21,10 @@ export const ActivityItem = ({
             uri: photoUrl,
           }}
         />
+        {isFavorite && (
+          <Image style={styles.favoriteImage} source={Images.favorite} />
+        )}
+
         <View style={styles.contentContainer}>
           <View style={[styles.row, styles.content]}>
             <Text>{name}</Text>

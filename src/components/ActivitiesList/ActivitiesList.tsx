@@ -12,6 +12,7 @@ export const ActivitiesList = (props: ActivityListProps) => {
         renderItem={({ item }) => (
           <ActivityItem
             itemId={item.id}
+            isFavorite={item.id === 1}
             location={item.location}
             name={item.name}
             photoUrl={item.photoUrl}
