@@ -1,10 +1,15 @@
-import { View, Text } from 'react-native'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { ActivitiesList } from '../components'
+import { Text } from 'react-native'
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>Hello, developer!</Text>
-    </View>
+    <SafeAreaView
+      style={{ flex: 1, paddingHorizontal: 10, backgroundColor: '#fff' }}
+    >
+      <Text>Activities</Text>
+      <ActivitiesList />
+    </SafeAreaView>
   )
 }
 

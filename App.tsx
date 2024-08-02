@@ -1,6 +1,5 @@
-import '@/i18n'
-import RootRouter from '@/screens/RootRouter'
 import { NavigationContainer } from '@react-navigation/native'
+import RootRouter from './src/screens/RootRouter'
 import { StatusBar } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
