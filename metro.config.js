@@ -11,6 +11,8 @@ const { assetExts, sourceExts } = defaultConfig.resolver
  */
 const config = {
   transformer: {
+    experimentalImportSupport: false,
+    inlineRequires: true,
     babelTransformerPath: require.resolve('react-native-svg-transformer'),
   },
   resolver: {
