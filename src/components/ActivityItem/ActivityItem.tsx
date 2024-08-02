@@ -4,7 +4,6 @@ import { Images } from '../../assets'
 import { ActivityItemProps } from './ActivityItemProps'
 
 export const ActivityItem = ({
-  itemId,
   photoUrl,
   name,
   location,

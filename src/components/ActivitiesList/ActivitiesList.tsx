@@ -8,6 +8,7 @@ export const ActivitiesList = (props: ActivityListProps) => {
     <View style={styles.container}>
       <FlatList
         data={props.items}
+        keyExtractor={(item) => item.id + ''}
         renderItem={({ item }) => (
           <ActivityItem
             itemId={item.id}
