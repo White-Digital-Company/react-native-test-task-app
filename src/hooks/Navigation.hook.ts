@@ -4,13 +4,13 @@ import { navigationRef } from '../router/root-navigation'
 
 interface UseNavigationReturn {
   goBack: () => void
-  goToActivity: () => void
+  goToActivity: (id: number) => void
 }
 export const UseNavigation = (): UseNavigationReturn => {
   const goBack = () => {
     navigationRef.goBack()
   }
-  const goToActivity = () => {
+  const goToActivity = (id: number) => {
     navigationRef.navigate(RouterKeys.ACTIVITY)
   }
   return {

@@ -13,8 +13,9 @@ const HomeScreen = () => {
       <Header title="Activities" />
       <View className="flex-1 justify-center items-center w-full">
         <FlatList
-          className="flex-1 bg-blue-200 w-full"
+          className="flex-1 w-full"
           data={activities}
+          contentContainerStyle={{ gap: 20 }}
           renderItem={({ item }) => {
             return (
               <ActivityContainer
