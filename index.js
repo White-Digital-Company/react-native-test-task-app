@@ -8,12 +8,12 @@ import { name as appName } from './app.json'
 
 // eslint-disable-next-line func-style
 function HeadlessCheck({ isHeadless }) {
-    if (isHeadless) {
-        // app has been launched in the background by iOS, ignore
-        return null
-    }
+  if (isHeadless) {
+    // app has been launched in the background by iOS, ignore
+    return null
+  }
 
-    return <App />
+  return <App />
 }
 
 AppRegistry.registerComponent(appName, () => HeadlessCheck)
