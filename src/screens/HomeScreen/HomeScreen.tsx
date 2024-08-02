@@ -7,7 +7,7 @@ import ActivityContainer from '../../components/activity-container/activity-cont
 
 const HomeScreen = () => {
   const { goToActivity } = UseNavigation()
-  const { activities } = UseActivities()
+  const { activities, handleGetActivityById } = UseActivities()
   return (
     <SafeAreaView className="flex-1 items-center flex-col px-6">
       <Header title="Activities" />
@@ -22,6 +22,7 @@ const HomeScreen = () => {
                 activity={item}
                 onPress={() => {
                   goToActivity(item.id)
+                  handleGetActivityById(item.id)
                 }}
               />
             )

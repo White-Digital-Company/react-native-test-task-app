@@ -22,7 +22,7 @@ const DefaultButton = ({
         <View
           className={
             styleClassName ??
-            'w-full bg-black flex align-center justify-center h-14'
+            'w-full bg-black flex align-center justify-center h-14 rounded-full'
           }
         >
           <ButtonLoader />
