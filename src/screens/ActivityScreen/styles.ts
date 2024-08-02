@@ -51,6 +51,9 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
     marginTop: 'auto',
   },
+  disabled: { 
+    opacity: .5
+  },
   buttonText: {
     color: '#fff',
     textAlign: 'center',

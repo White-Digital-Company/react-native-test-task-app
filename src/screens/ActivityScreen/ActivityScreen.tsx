@@ -37,10 +37,11 @@ export const ActivityScreen = () => {
         <Text style={styles.description}>{description}</Text>
       </View>
       <Pressable
+        disabled={addMutation.isPending}
         onPress={() => {
           addMutation.mutate(id)
         }}
-        style={styles.button}
+        style={[styles.button, addMutation.isPending && styles.disabled]}
       >
         <Text style={styles.buttonText}>Add to Favorites</Text>
       </Pressable>

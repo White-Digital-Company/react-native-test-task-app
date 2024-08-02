@@ -27,7 +27,7 @@ const RootRouter = () => {
       <Stack.Screen
         name="Activity"
         component={ActivityScreen}
-        options={{ headerTransparent: true }}
+        options={{ headerTransparent: true, headerTitle: () => null }}
       />
     </Stack.Navigator>
   )
