@@ -7,11 +7,11 @@
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "paths": {
-      "@screens/*": ["screens/*"],
-      "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
-    }
+      "@/*": ["./src/*"],
+      "#/*": ["./assets/*"]
+    },
+    "include": ["src","assets"]
   }
 }
