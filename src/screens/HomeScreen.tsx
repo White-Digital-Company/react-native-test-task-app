@@ -4,7 +4,6 @@ import ActivityCard from "@/components/activity-card";
 import { heightPercentageToDP as hp } from "react-native-responsive-screen";
 const HomeScreen = () => {
   const { activities, isActivitiesLoading, isSuccess } = useActivities();
-
   return (
     <View className="flex-1 bg-white">
       <View className={"p-5 pt-20"}>
