@@ -6,7 +6,7 @@
     "// --- develop --- //": "",
     "bootstrap": "yarn i && cd ios && npx pod install && cd ../",
     "prestart": "yarn adb",
-    "start": "react-native start",
+    "start": "react-native start --reset-cache",
     "adb": "(adb reverse tcp:8081 tcp:8081 || true) && (adb reverse tcp:7007 tcp:7007 || true) && (adb reverse tcp:3000 tcp:3000 || true)",
     "android": "adb shell pm uninstall --user 0 com.tasa ; react-native run-android --variant=devDebug",
     "ios": "react-native run-ios --simulator='iPhone 14 Pro'",
@@ -41,7 +41,8 @@
     "react-native-skeleton-placeholder": "^5.2.4",
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^15.8.0",
-    "react-native-svg-transformer": "^1.5.0"
+    "react-native-svg-transformer": "^1.5.0",
+    "twrnc": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

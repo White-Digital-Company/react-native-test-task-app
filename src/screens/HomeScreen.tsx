@@ -1,26 +1,26 @@
-import { ActivityIndicator, FlatList, Text, View } from "react-native";
-import { useActivities } from "@/hooks/useActivities.ts";
-import ActivityCard from "@/components/activity-card";
-import { heightPercentageToDP as hp } from "react-native-responsive-screen";
-const HomeScreen = () => {
-  const { activities, isActivitiesLoading, isSuccess } = useActivities();
+import { Text, View } from 'react-native'
+import { useActivities } from '@/api/resources/activities/useActivities.ts'
+import tw from '@/lib/tailwind'
+import ActivityList from '@/components/activity-list'
+import { RootStackScreenProps } from '@/screens/types/root.ts'
+
+const HomeScreen = ({ navigation }: RootStackScreenProps<'Home'>) => {
+  const { activities, isActivitiesLoading } = useActivities()
+
   return (
-    <View className="flex-1 bg-white">
-      <View className={"p-5 pt-20"}>
-        <Text className="font-main text-base text-center text-black">Activities</Text>
+    <View style={tw`flex-1 bg-white`}>
+      <View style={tw`p-5 pt-20`}>
+        <Text style={tw`font-main text-base text-center text-black`}>
+          Activities
+        </Text>
       </View>
-      <FlatList contentContainerStyle={{ padding: 20, gap: 10 }} showsVerticalScrollIndicator={false} data={activities}
-                renderItem={({ item }) => <ActivityCard item={item} />}
-                keyExtractor={(item) => item.id + ""}
-                ListFooterComponent={isActivitiesLoading ?
-                  <ActivityIndicator color={"black"} size="large" style={{height:hp(75)}} /> : null}
-                ListEmptyComponent={!isActivitiesLoading ?
-                  <Text className="font-main text-base text-center text-gray-500">
-                    Activities not found
-                  </Text> : null} />
-
+      <ActivityList
+        isLoading={isActivitiesLoading}
+        data={activities}
+        navigation={navigation}
+      />
     </View>
-  );
-};
+  )
+}
 
-export default HomeScreen;
+export default HomeScreen

@@ -1,16 +1,21 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset',],
+  presets: ['module:@react-native/babel-preset'],
   plugins: [
-    ["nativewind/babel"],
+    ['nativewind/babel'],
     ['module:react-native-dotenv'],
     [
       'module-resolver',
       {
-        root: ['.'],
+        root: ['./src'],
         extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
-          "@": "./src",
-          "#":"./assets"
+          '@/screens': './src/screens',
+          '@/components': './src/components',
+          '@/api': './src/api',
+          '@/lib': './src/lib',
+          '#/icons': './assets/icons',
+          '#/images': './assets/images',
+          '#/fonts': './assets/images',
         },
       },
     ],
