@@ -9,8 +9,10 @@ const HomeScreen: FC = () => {
   const { data, isLoading } = useGetActivities();
 
   return (
-    <View style={{ paddingTop: top + 18, backgroundColor: '#ffffff' }}>
-      <Text style={{ fontFamily: 'Abel-Regular', fontSize: 16, lineHeight: 20.39, textAlign: 'center' }}>
+    <View style={{ paddingTop: top + 18, backgroundColor: '#ffffff', flex: 1 }}>
+      <Text
+        style={{ fontFamily: 'Abel-Regular', fontSize: 16, lineHeight: 20.39, textAlign: 'center', marginBottom: 36 }}
+      >
         Activities
       </Text>
       <FlatList data={data} renderItem={({ item }) => <ActivityItem activity={item} />} />
