@@ -1,4 +1,4 @@
-export interface IActivities {
+export interface IActivity {
   id: number;
   photoUrl: string;
   name: string;
