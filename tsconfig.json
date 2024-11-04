@@ -10,8 +10,11 @@
     "baseUrl": "src",
     "paths": {
       "@screens/*": ["screens/*"],
-      "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
-    }
+      "@api/*": ["api/*"],
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+      "@assets/*": ["assets/*"]
+    },
+    "include": ["src","assets","declarations.d.ts"]
   }
 }

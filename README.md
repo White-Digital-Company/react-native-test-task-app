@@ -47,3 +47,12 @@ This test is to evaluate:
 - [API Base URL](https://test-task-server-production.up.railway.app/openApi)
 
 If you have any questions or need further clarification, feel free to reach out.
+
+### Videos
+1. Samsung A71
+https://github.com/user-attachments/assets/5ead6b7f-b309-46b1-a63e-fe15a3168542
+
+2.Pixel Tablet
+https://github.com/user-attachments/assets/63557a72-a547-4d30-971a-b351eb64c038
+
+
