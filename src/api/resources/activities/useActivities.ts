@@ -1,5 +1,4 @@
-import { useActivitiesQuery } from '@/api/resources/activities/queries'
-
+import { useActivitiesQuery } from '@api/resources/activities/queries'
 export const useActivities = () => {
   const {
     data: activities,

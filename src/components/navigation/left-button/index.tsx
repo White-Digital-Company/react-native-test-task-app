@@ -1,7 +1,8 @@
 import { TouchableOpacity } from 'react-native'
-import Arrow from '#/icons/arrow.svg'
-import tw from '@/lib/tailwind'
+import Arrow from '@assets/icons/arrow.svg'
+import tw from '@lib/tailwind'
 import { HeaderBackButtonProps } from '@react-navigation/elements'
+
 export const LeftButton = (props: HeaderBackButtonProps) => {
   return (
     <TouchableOpacity

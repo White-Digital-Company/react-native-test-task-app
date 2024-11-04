@@ -4,8 +4,8 @@ import {
 } from '@react-navigation/stack'
 import HomeScreen from './HomeScreen'
 import { RootStackParamList } from './types/root'
-import ActivityScreen from '@/screens/ActivityScreen.tsx'
-import { LeftButton } from '@/components/navigation/left-button'
+import ActivityScreen from '@screens/ActivityScreen.tsx'
+import { LeftButton } from '@components/navigation/left-button'
 
 const Stack = createStackNavigator<RootStackParamList>()
 
@@ -40,4 +40,5 @@ const RootRouter = () => {
     </Stack.Navigator>
   )
 }
+
 export default RootRouter

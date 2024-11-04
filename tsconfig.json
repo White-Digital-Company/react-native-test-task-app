@@ -7,10 +7,13 @@
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "baseUrl": ".",
+    "baseUrl": "src",
     "paths": {
-      "@/*": ["./src/*"],
-      "#/*": ["./assets/*"]
+      "@screens/*": ["screens/*"],
+      "@api/*": ["api/*"],
+      "@components/*": ["components/*"],
+      "@lib/*": ["lib/*"],
+      "@assets/*": ["assets/*"]
     },
     "include": ["src","assets","declarations.d.ts"]
   }

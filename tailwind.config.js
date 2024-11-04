@@ -7,13 +7,13 @@ module.exports = {
         main: ['Abel-Regular', 'sans-serif'],
       },
       borderColor: {
-        mainBorder: '#F5F5F5',
+        grey: '#F5F5F5',
       },
       backgroundColor: {
-        greyBg: '#F7F7F7',
+        lightGrey: '#F7F7F7',
       },
       textColor: {
-        mainGrey: '#979797',
+        mediumGrey: '#979797',
       },
     },
   },

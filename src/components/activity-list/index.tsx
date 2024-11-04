@@ -1,14 +1,16 @@
-import ActivityCard from '@/components/activity-card'
+import ActivityCard from '@components/activity-card'
 import { ActivityIndicator, FlatList, Text } from 'react-native'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import tw from '@/lib/tailwind'
-import { Activity } from 'src/api/resources/activities/types'
-import { RootStackScreenProps } from '@/screens/types/root.ts'
+import tw from '@lib/tailwind'
+import { Activity } from '@api/resources/activities/types'
+import { RootStackScreenProps } from '@screens/types/root.ts'
+
 interface ActivityListProps {
   data: Activity[] | undefined
   isLoading: boolean
   navigation: RootStackScreenProps<'Home'>['navigation']
 }
+
 const ActivityList = ({ data, isLoading, navigation }: ActivityListProps) => {
   return (
     <FlatList

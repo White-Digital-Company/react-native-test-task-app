@@ -1,5 +1,5 @@
-import { ActivitiesResponse } from 'src/api/resources/activities/types'
-import { api } from '@/api/api.ts'
+import { ActivitiesResponse } from '@api/resources/activities/types'
+import { api } from '@api/api.ts'
 export const getActivities = async () => {
   const response = await api.get<ActivitiesResponse>('/activities')
   return response.data

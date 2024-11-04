@@ -1,12 +1,12 @@
 import { Text, View } from 'react-native'
-import { useActivities } from '@/api/resources/activities/useActivities.ts'
-import tw from '@/lib/tailwind'
-import ActivityList from '@/components/activity-list'
-import { RootStackScreenProps } from '@/screens/types/root.ts'
+import { useActivities } from '@api/resources/activities/useActivities.ts'
+import tw from '@lib/tailwind'
+import ActivityList from '@components/activity-list'
+import { useNavigation } from '@react-navigation/native'
 
-const HomeScreen = ({ navigation }: RootStackScreenProps<'Home'>) => {
+const HomeScreen = () => {
   const { activities, isActivitiesLoading } = useActivities()
-
+  const navigation = useNavigation()
   return (
     <View style={tw`flex-1 bg-white`}>
       <View style={tw`p-5 pt-20`}>
