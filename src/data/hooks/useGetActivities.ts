@@ -5,7 +5,7 @@ import { IActivity } from 'data/models/IActivity';
 import { useEffect } from 'react';
 
 const useGetActivities = () => {
-  const { data, isLoading, error, refetch, isFetching } = useQuery<IActivity[], AxiosError>({
+  const { data, isLoading, error, refetch, isFetching, isRefetching } = useQuery<IActivity[], AxiosError>({
     queryKey: ['activities'],
     queryFn: () => api.get<IActivity[]>(`/activities`).then(dto => dto.data),
   });
@@ -24,6 +24,7 @@ const useGetActivities = () => {
     error,
     refetch,
     isFetching,
+    isRefetching,
   };
 };
 
