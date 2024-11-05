@@ -1,8 +1,16 @@
-import { StackScreenProps } from '@react-navigation/stack'
+import { StackScreenProps } from '@react-navigation/stack';
+import { IActivity } from 'data/models/IActivity';
 
-export type RootStackParamList = {
-  Home: undefined
+export enum StackScreen {
+  HOME = 'Home',
+  DETAILS = 'Details',
 }
 
-export type RootStackScreenProps<T extends keyof RootStackParamList> =
-  StackScreenProps<RootStackParamList, T>
+export type RootStackParamList = {
+  Home: undefined;
+  Details: {
+    activity: IActivity;
+  };
+};
+
+export type RootStackScreenProps<T extends keyof RootStackParamList> = StackScreenProps<RootStackParamList, T>;

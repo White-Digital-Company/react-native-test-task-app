@@ -6,9 +6,12 @@ module.exports = {
       {
         root: ['./src'],
         alias: {
-          '@/screens': './src/screens',
+          screens: './src/screens',
+          data: './src/data',
+          assets: './src/assets',
+          components: './src/components',
         },
       },
     ],
   ],
-}
+};
