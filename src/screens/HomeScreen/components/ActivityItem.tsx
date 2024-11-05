@@ -4,6 +4,9 @@ import { Dimensions, Image, Pressable, Text, View } from 'react-native';
 import Star from '@/assets/svg/Star.svg';
 import MapPin from '@/assets/svg/MapPin.svg';
 import tw from '../../../lib/tailwind';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
+import { RootStackParamList, StackScreen } from '@/screens/types/root';
 
 interface Props {
   activity: IActivity;
@@ -11,8 +14,14 @@ interface Props {
 
 const ActivityItem: FC<Props> = ({ activity }) => {
   const { width } = Dimensions.get('window');
+  const { navigate } = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
-    <Pressable style={tw`flex justify-center items-center mb-[10]`}>
+    <Pressable
+      style={tw`flex justify-center items-center mb-[10]`}
+      onPress={() => {
+        navigate(StackScreen.DETAILS, { activity });
+      }}
+    >
       <Image
         source={{ uri: activity.photoUrl }}
         defaultSource={require('@/assets/images/EmptyPicture.jpg')}
