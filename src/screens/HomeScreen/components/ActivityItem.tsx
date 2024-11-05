@@ -25,7 +25,7 @@ const ActivityItem: FC<Props> = ({ activity }) => {
       <Image
         source={{ uri: activity.photoUrl }}
         defaultSource={require('assets/images/EmptyPicture.jpg')}
-        style={{ width: width - 40, height: 200 }}
+        style={[tw`h-[200px] rounded-[20px]`, { width: width - 40 }]}
       />
       <View style={[tw`bg-grayBg p-[20] rounded-[20px] mt-2`, { width: width - 40 }]}>
         <View style={tw`flex-row justify-between items-center`}>
