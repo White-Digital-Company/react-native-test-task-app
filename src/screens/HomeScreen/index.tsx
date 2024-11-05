@@ -1,8 +1,9 @@
 import useGetActivities from '@/data/hooks/useGetActivities';
 import { FC } from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import ActivityItem from './components/ActivityItem';
+import tw from 'lib/tailwind';
 
 const HomeScreen: FC = () => {
   const { top } = useSafeAreaInsets();
@@ -15,7 +16,15 @@ const HomeScreen: FC = () => {
       >
         Activities
       </Text>
-      <FlatList data={data} renderItem={({ item }) => <ActivityItem activity={item} />} />
+      {isLoading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <FlatList
+          data={data}
+          renderItem={({ item }) => <ActivityItem activity={item} />}
+          contentContainerStyle={tw`pb-[32]`}
+        />
+      )}
     </View>
   );
 };
