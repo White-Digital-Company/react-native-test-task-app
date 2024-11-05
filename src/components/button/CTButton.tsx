@@ -19,17 +19,17 @@ export const CTButton = ({
   return (
     <TouchableOpacity
       onPress={onClick}
-      style={[
-        tw`${propStyles} ${
-          loading ? 'opacity-50' : ''
-        } h-14 py-4 items-center justify-center rounded-full`,
-      ]}
+      style={tw.style(
+        propStyles,
+        loading ? 'opacity-50' : '',
+        'h-14 py-4 items-center justify-center rounded-full',
+      )}
       disabled={loading}
     >
       {loading ? (
         <ActivityIndicator size="small" />
       ) : text ? (
-        <Text style={[tw`text-white text-base`]}>{text}</Text>
+        <Text style={tw`text-white text-base`}>{text}</Text>
       ) : (
         children
       )}
