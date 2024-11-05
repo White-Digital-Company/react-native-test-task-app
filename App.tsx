@@ -1,4 +1,4 @@
-import RootRouter from '@/screens/RootRouter';
+import RootRouter from 'screens/RootRouter';
 import { NavigationContainer } from '@react-navigation/native';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StatusBar } from 'react-native';

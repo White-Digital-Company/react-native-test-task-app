@@ -1,12 +1,13 @@
 import { useRoute, RouteProp, useNavigation } from '@react-navigation/native';
-import { RootStackParamList, StackScreen } from '@screens/types/root';
+import { RootStackParamList, StackScreen } from 'screens/types/root';
 import tw from 'lib/tailwind';
 import { FC } from 'react';
-import { Image, Pressable, View, Text } from 'react-native';
+import { Image, Pressable, View, Text, ActivityIndicator } from 'react-native';
 import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
-import BackArrow from '@/assets/svg/BackArrow.svg';
+import BackArrow from 'assets/svg/BackArrow.svg';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import Divider from '@/components/Divider';
+import Divider from 'components/Divider';
+import useAddToFavorites from 'data/hooks/useAddToFavorites';
 
 const ActivityDetailsScreen: FC = () => {
   const {
@@ -14,6 +15,7 @@ const ActivityDetailsScreen: FC = () => {
   } = useRoute<RouteProp<RootStackParamList, StackScreen.DETAILS>>();
   const { goBack } = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   const { top, bottom } = useSafeAreaInsets();
+  const { addToFavorites, isSuccess, isPending } = useAddToFavorites();
 
   return (
     <View style={tw`flex-1 bg-white`}>
@@ -29,7 +31,7 @@ const ActivityDetailsScreen: FC = () => {
       <Image
         source={{ uri: activity.photoUrl }}
         style={tw`w-full h-[450px] rounded-b-[20px] mb-[20px]`}
-        defaultSource={require('@/assets/images/EmptyPicture.jpg')}
+        defaultSource={require('assets/images/EmptyPicture.jpg')}
       />
       <View style={tw`px-[20px] flex-1`}>
         <Text style={tw`font-main text-[24px] text-black leading-[30px] mb-[20px]`}>{activity.name}</Text>
@@ -49,8 +51,15 @@ const ActivityDetailsScreen: FC = () => {
           tw`bg-black h-[56px] rounded-[100px] absolute left-[20px] right-[20px] flex items-center justify-center`,
           { bottom: bottom ?? 20 },
         ]}
+        onPress={() => addToFavorites(activity.id)}
       >
-        <Text style={tw`font-main text-[16px] text-white leading-[20px]`}>Add to Favorites</Text>
+        {isPending ? (
+          <ActivityIndicator size="small" color="white" />
+        ) : (
+          <Text style={tw`font-main text-[16px] text-white leading-[20px]`}>
+            {isSuccess ? 'Added to Favorites' : 'Add to Favorites'}
+          </Text>
+        )}
       </Pressable>
     </View>
   );

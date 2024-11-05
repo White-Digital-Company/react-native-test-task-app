@@ -1,12 +1,12 @@
-import { IActivity } from '@/data/models/IActivity';
+import { IActivity } from 'data/models/IActivity';
 import { FC } from 'react';
 import { Dimensions, Image, Pressable, Text, View } from 'react-native';
-import Star from '@/assets/svg/Star.svg';
-import MapPin from '@/assets/svg/MapPin.svg';
+import Star from 'assets/svg/Star.svg';
+import MapPin from 'assets/svg/MapPin.svg';
 import tw from '../../../lib/tailwind';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from 'react-native-screens/lib/typescript/native-stack/types';
-import { RootStackParamList, StackScreen } from '@/screens/types/root';
+import { RootStackParamList, StackScreen } from 'screens/types/root';
 
 interface Props {
   activity: IActivity;
@@ -24,7 +24,7 @@ const ActivityItem: FC<Props> = ({ activity }) => {
     >
       <Image
         source={{ uri: activity.photoUrl }}
-        defaultSource={require('@/assets/images/EmptyPicture.jpg')}
+        defaultSource={require('assets/images/EmptyPicture.jpg')}
         style={{ width: width - 40, height: 200 }}
       />
       <View style={[tw`bg-grayBg p-[20] rounded-[20px] mt-2`, { width: width - 40 }]}>

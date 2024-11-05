@@ -1,4 +1,4 @@
-import useGetActivities from '@/data/hooks/useGetActivities';
+import useGetActivities from 'data/hooks/useGetActivities';
 import { FC } from 'react';
 import { View, Text, FlatList, ActivityIndicator } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';

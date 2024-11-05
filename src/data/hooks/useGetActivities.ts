@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import api from '@/data/api/AxiosApi';
-import { IActivity } from '@/data/models/IActivity';
+import api from 'data/api/AxiosApi';
+import { IActivity } from 'data/models/IActivity';
 import { useEffect } from 'react';
 
 const useGetActivities = () => {

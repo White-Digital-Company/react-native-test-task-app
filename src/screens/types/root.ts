@@ -1,5 +1,5 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { IActivity } from '@/data/models/IActivity';
+import { IActivity } from 'data/models/IActivity';
 
 export enum StackScreen {
   HOME = 'Home',
