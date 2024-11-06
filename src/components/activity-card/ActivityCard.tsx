@@ -1,20 +1,20 @@
 import React from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
-import tw from '../../../tw'
 import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import { IActivity } from 'src/types/activityTypes'
 import StarSvg from '@assets/svgs/Star.svg'
 import MapPinSvg from '@assets/svgs/MapPin.svg'
 import noImage from '@assets/images/no-image.png'
+import { tw } from '@tools/tw'
 
 interface IActivityCardProps {
   activity: IActivity
-  onClick: () => void
+  onPress: () => void
 }
 
-export const ActivityCard = ({ activity, onClick }: IActivityCardProps) => {
+export const ActivityCard = ({ activity, onPress }: IActivityCardProps) => {
   return (
-    <TouchableOpacity onPress={onClick} style={tw`w-full px-5`}>
+    <TouchableOpacity onPress={onPress} style={tw`w-full px-5`}>
       <Image
         source={{ uri: activity.photoUrl }}
         defaultSource={noImage}

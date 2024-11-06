@@ -1,24 +1,24 @@
 import React, { ReactNode } from 'react'
 import { ActivityIndicator, Text, TouchableOpacity } from 'react-native'
-import tw from '../../../tw'
+import { tw } from '@tools/tw'
 
 interface ICTButtonProps {
   text?: string
-  onClick: () => void
+  onPress: () => void
   children?: ReactNode
   propStyles?: string
   loading?: boolean
 }
 export const CTButton = ({
   text,
-  onClick,
+  onPress,
   children,
   propStyles = 'bg-black',
   loading,
 }: ICTButtonProps) => {
   return (
     <TouchableOpacity
-      onPress={onClick}
+      onPress={onPress}
       style={tw.style(
         propStyles,
         loading ? 'opacity-50' : '',

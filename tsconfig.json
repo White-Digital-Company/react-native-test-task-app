@@ -11,7 +11,8 @@
     "paths": {
       "@screens/*": ["src/screens/*"],
       "@components/*": ["src/components/*"],
-      "@api/*": ["common/api/*"],
+      "@tools/*": ["src/tools/*"],
+      "@api/*": ["src/api/*"],
       "@assets/*": ["assets/*"]
     }
   },

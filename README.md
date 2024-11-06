@@ -43,6 +43,10 @@ This test is to evaluate:
 BASE_URL
 ```
 
+### Link to see how the app works:
+
+https://www.dropbox.com/t/5IWAf2w5ksSBrHSx
+
 ### Acceptance Criteria
 
 - Two fully implemented screens as per the Figma design.

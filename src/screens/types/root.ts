@@ -8,9 +8,3 @@ export type RootStackParamList = {
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =
   StackScreenProps<RootStackParamList, T>
-
-export type HomeScreenNavigationProp =
-  RootStackScreenProps<'HomeScreen'>['navigation']
-
-export type ActivityScreenNavigationProp =
-  RootStackScreenProps<'ActivityScreen'>['navigation']

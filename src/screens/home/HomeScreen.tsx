@@ -1,20 +1,18 @@
 import React from 'react'
-import { Header } from '@components/header/Header'
-import { Platform, FlatList } from 'react-native'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { useGetActivities } from '../../queries/activityQueries/activityQueries'
-import tw from '../../../tw'
+import { FlatList, View } from 'react-native'
+import { useGetActivities } from '@api/resources/activities/useActivities'
 import { ActivityCard } from '@components/activity-card/ActivityCard'
 import { useNavigation } from '@react-navigation/native'
-import { HomeScreenNavigationProp } from '@screens/types/root'
+import { RootStackScreenProps } from '@screens/types/root'
+import { tw } from '@tools/tw'
 
 export const HomeScreen = () => {
-  const navigation = useNavigation<HomeScreenNavigationProp>()
+  const navigation =
+    useNavigation<RootStackScreenProps<'HomeScreen'>['navigation']>()
   const { data } = useGetActivities()
 
   return (
-    <SafeAreaView style={tw`flex-1 ${Platform.OS === 'android' ? 'pb-3' : ''}`}>
-      <Header title="Activities" />
+    <View style={tw`flex-1 pb-3`}>
       <FlatList
         data={data}
         contentContainerStyle={{ gap: 10 }}
@@ -23,13 +21,13 @@ export const HomeScreen = () => {
           return (
             <ActivityCard
               activity={item}
-              onClick={() =>
+              onPress={() =>
                 navigation.navigate('ActivityScreen', { activity: item })
               }
             />
           )
         }}
       />
-    </SafeAreaView>
+    </View>
   )
 }
