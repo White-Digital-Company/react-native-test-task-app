@@ -1,7 +1,9 @@
 import { StackScreenProps } from '@react-navigation/stack'
+import { IActivity } from 'src/types/activityTypes'
 
 export type RootStackParamList = {
-  Home: undefined
+  HomeScreen: undefined
+  ActivityScreen: { activity: IActivity }
 }
 
 export type RootStackScreenProps<T extends keyof RootStackParamList> =

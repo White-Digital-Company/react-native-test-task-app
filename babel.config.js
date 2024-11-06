@@ -4,10 +4,26 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
         alias: {
-          '@/screens': './src/screens',
+          '@screens': './src/screens',
+          '@components': './src/components',
+          '@tools': './src/tools',
+          '@api': './src/api',
+          '@assets': './assets',
         },
+      },
+    ],
+    [
+      'module:react-native-dotenv',
+      {
+        envName: 'APP_ENV',
+        moduleName: '@env',
+        path: '.env',
+        blocklist: null,
+        allowlist: null,
+        safe: false,
+        allowUndefined: true,
+        verbose: false,
       },
     ],
   ],

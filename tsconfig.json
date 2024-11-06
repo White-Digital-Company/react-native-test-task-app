@@ -7,11 +7,18 @@
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "baseUrl": "src",
+    "baseUrl": "./",
     "paths": {
-      "@screens/*": ["screens/*"],
-      "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
+      "@screens/*": ["src/screens/*"],
+      "@components/*": ["src/components/*"],
+      "@tools/*": ["src/tools/*"],
+      "@api/*": ["src/api/*"],
+      "@assets/*": ["assets/*"]
     }
-  }
+  },
+  "include": [
+    "src/**/*",
+    "assets/**/*",
+    "env.d.ts"
+  ]
 }
