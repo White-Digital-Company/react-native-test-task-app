@@ -1,16 +1,15 @@
 import React from 'react'
 import {
-  View,
   Text,
   SafeAreaView,
   FlatList,
   TouchableOpacity,
   RefreshControl,
 } from 'react-native'
-import { useActivities } from '../hooks/useActivities'
-import ActivitiesItem from '../component/ActivitiesItem'
-import Error from '../component/Error'
-import Loading from '../component/Loading'
+import { useActivities } from '@hooks/useActivities'
+import ActivitiesItem from '@component/ActivitiesItem'
+import Error from '@component/Error'
+import Loading from '@component/Loading'
 
 import { Activities } from '../data/types/activities'
 
@@ -23,8 +22,8 @@ type Props = {
   navigation: StackNavigationProp<RootStackParamList>
 }
 
-const handleActivitiesItem = (item: Activities, navigation: any) => {
-  navigation.navigate('Favorites', { item })
+const handleActivitiesItem = (activities: Activities, navigation: any) => {
+  navigation.navigate('Favorites', { activities })
 }
 
 const HomeScreen: React.FC<Props> = ({ navigation }) => {

@@ -2,8 +2,8 @@ import React from 'react'
 import { View, Text, Image } from 'react-native'
 import tw from '../../tw'
 
-import StartIcon from '../assets/icons/activities/star.svg'
-import MapPoint from '../assets/icons/activities/map-point.svg'
+import StartIcon from '@assets/icons/activities/star.svg'
+import MapPoint from '@assets/icons/activities/map-point.svg'
 
 import { Activities } from '../data/types/activities'
 
@@ -30,7 +30,7 @@ const ActivitiesItem: React.FC<Props> = data => {
           <View style={tw`flex-row items-center`}>
             <StartIcon />
 
-            <Text style={tw`text-mainBlack text-fz12 leading-lh14`}>
+            <Text style={tw`text-mainBlack text-fz12 leading-lh14 font-sfPro`}>
               {activities.rating}
             </Text>
           </View>
@@ -46,11 +46,13 @@ const ActivitiesItem: React.FC<Props> = data => {
           </View>
 
           <View style={tw`flex-row items-center`}>
-            <Text style={tw`text-mainBlack text-fz14 leading-lh17`}>
+            <Text style={tw`text-mainBlack text-fz14 leading-lh17 font-sfPro`}>
               ${activities.price}
             </Text>
 
-            <Text style={tw`text-mainGray text-fz12 leading-lh14 ml-1`}>
+            <Text
+              style={tw`text-mainGray text-fz12 leading-lh14 ml-1 font-sfPro`}
+            >
               / night
             </Text>
           </View>

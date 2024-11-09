@@ -1,9 +1,11 @@
-import axios from 'axios'
+import api from './axiosConfig'
 
 export const fetchActivities = async () => {
-  const response = await axios.get(
-    'https://test-task-server-production.up.railway.app/activities',
-  )
-
-  return response.data
+  try {
+    const response = await api.get('/activities')
+    return response.data
+  } catch (error) {
+    console.error('Failed to fetch activities:', error)
+    throw error
+  }
 }

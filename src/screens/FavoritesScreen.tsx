@@ -13,10 +13,10 @@ import { RootStackParamList } from '../screens/types/root'
 
 import tw from '../../tw'
 
-import BackIcon from '../assets/icons/favorites/back.svg'
+import BackIcon from '@assets/icons/favorites/back.svg'
 
-import { useAddFavorite } from '../hooks/useAddFavorite'
-import Loading from '../component/Loading'
+import { useAddFavorite } from '@hooks/useAddFavorite'
+import Loading from '@component/Loading'
 
 type Props = {
   route: RouteProp<RootStackParamList, 'Favorites'>
@@ -25,6 +25,7 @@ type Props = {
 
 const FavoritesScreen: React.FC<Props> = ({ navigation, route }) => {
   const dataActivities = route.params.activities
+
   const [message, setMessage] = useState<string>('')
   const {
     mutate: addFavorite,
