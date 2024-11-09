@@ -5,7 +5,7 @@ import tw from '../../tw'
 import StartIcon from '../assets/icons/activities/star.svg'
 import MapPoint from '../assets/icons/activities/map-point.svg'
 
-import { Activities } from './../screens/types/activities'
+import { Activities } from '../data/types/activities'
 
 type Props = {
   activitiesData: Activities
@@ -17,13 +17,13 @@ const ActivitiesItem: React.FC<Props> = data => {
   return (
     <View style={tw`mr-5 ml-5 mb-2.5`}>
       <Image
-        source={{ uri: activities?.photoUrl }}
+        source={{ uri: activities.photoUrl }}
         style={tw`w-full h-[139px] border-0 rounded-[20px]`}
       />
 
       <View style={tw`border-0 rounded-[20px] p-5 bg-bgGray`}>
         <View style={tw`flex-row justify-between items-center`}>
-          <Text style={tw`text-mainBlack text-fz16 leading-lh15`}>
+          <Text style={tw`text-mainBlack text-fz16 leading-lh15 font-abel`}>
             {activities.name}
           </Text>
 
@@ -40,7 +40,7 @@ const ActivitiesItem: React.FC<Props> = data => {
           <View style={tw`flex-row items-center`}>
             <MapPoint />
 
-            <Text style={tw`ml-1.5 text-fz12 leading-lh14`}>
+            <Text style={tw`ml-1.5 text-fz12 leading-lh14 font-sfPro`}>
               {activities.location}
             </Text>
           </View>

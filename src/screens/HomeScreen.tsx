@@ -5,22 +5,30 @@ import {
   SafeAreaView,
   FlatList,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native'
 import { useActivities } from '../hooks/useActivities'
 import ActivitiesItem from '../component/ActivitiesItem'
 import Error from '../component/Error'
 import Loading from '../component/Loading'
 
-import { Activities } from './../screens/types/activities'
+import { Activities } from '../data/types/activities'
 
 import tw from '../../tw'
 
-const handleActivitiesItem = (item: Activities) => {
-  console.log('here item', item)
+import { RootStackParamList } from '../screens/types/root'
+import { StackNavigationProp } from '@react-navigation/stack'
+
+type Props = {
+  navigation: StackNavigationProp<RootStackParamList>
 }
 
-const HomeScreen: React.FC = () => {
-  const { data, error, isLoading } = useActivities()
+const handleActivitiesItem = (item: Activities, navigation: any) => {
+  navigation.navigate('Favorites', { item })
+}
+
+const HomeScreen: React.FC<Props> = ({ navigation }) => {
+  const { data, error, isLoading, isRefetching, refetch } = useActivities()
 
   if (error) {
     return <Error message={error.message} />
@@ -41,8 +49,13 @@ const HomeScreen: React.FC = () => {
       <FlatList
         keyExtractor={item => item.id.toString()}
         data={data}
+        refreshControl={
+          <RefreshControl refreshing={isRefetching} onRefresh={refetch} />
+        }
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => handleActivitiesItem(item)}>
+          <TouchableOpacity
+            onPress={() => handleActivitiesItem(item, navigation)}
+          >
             <ActivitiesItem activitiesData={item} />
           </TouchableOpacity>
         )}
