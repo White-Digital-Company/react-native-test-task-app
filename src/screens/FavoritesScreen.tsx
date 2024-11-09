@@ -6,6 +6,7 @@ import {
   StatusBar,
   TouchableOpacity,
   Alert,
+  ScrollView,
 } from 'react-native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { RouteProp } from '@react-navigation/native'
@@ -45,14 +46,14 @@ const FavoritesScreen: React.FC<Props> = ({ navigation, route }) => {
   }, [isSuccess, error])
 
   return (
-    <View>
+    <ScrollView>
       <StatusBar hidden={true} />
 
       {isPending && <Loading />}
 
       <Image
         source={{ uri: dataActivities.photoUrl }}
-        style={tw`w-full h-[450px] border-0 rounded-[20px]`}
+        style={tw`w-full h-[450px] border-0 rounded-bl-[20px] rounded-br-[20px]`}
       />
 
       <TouchableOpacity
@@ -98,7 +99,7 @@ const FavoritesScreen: React.FC<Props> = ({ navigation, route }) => {
           </Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </ScrollView>
   )
 }
 

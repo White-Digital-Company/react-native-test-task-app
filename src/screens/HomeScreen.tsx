@@ -38,7 +38,7 @@ const HomeScreen: React.FC<Props> = ({ navigation }) => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={tw`flex-1 `}>
       <Text
         style={tw`text-center text-fz16 leading-lh20 mb-[37.5px] mt-[18.5px]`}
       >
