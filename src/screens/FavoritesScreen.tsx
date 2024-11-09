@@ -1,6 +1,7 @@
+import React from 'react'
 import { View, Text } from 'react-native'
 
-const DetailsScreen = () => {
+const FavoritesScreen: React.FC = () => {
   return (
     <View>
       <Text>Hello, developer!</Text>
@@ -8,4 +9,4 @@ const DetailsScreen = () => {
   )
 }
 
-export default DetailsScreen
+export default FavoritesScreen

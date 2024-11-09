@@ -8,6 +8,8 @@ module.exports = {
         alias: {
           '@/screens': './src/screens',
         },
+        moduleName: '@env',
+        path: '.env',
       },
     ],
   ],
