@@ -4,6 +4,8 @@ import {
 } from '@react-navigation/stack'
 import HomeScreen from './HomeScreen'
 import { RootStackParamList } from './types/root'
+import { Header } from '../components/Header'
+import ActivityDetailsScreen from './ActivityDetailsScreen'
 
 const Stack = createStackNavigator<RootStackParamList>()
 
@@ -21,7 +23,23 @@ const RootRouter = () => {
       <Stack.Screen
         name="Home"
         component={HomeScreen}
-        options={{ headerShown: false }}
+        options={{
+          headerTitleAlign: 'center',
+          headerTitle: () => (
+            <Header title='Activities'/>
+          ),
+          headerStyle: {
+          shadowColor: 'transparent',
+          elevation: 0,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="ActivityDetails"
+        component={ActivityDetailsScreen}
+        options={{
+          headerShown: false
+        }}
       />
     </Stack.Navigator>
   )

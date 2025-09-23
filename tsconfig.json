@@ -7,11 +7,12 @@
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "baseUrl": ".",
     "paths": {
-      "@screens/*": ["screens/*"],
-      "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
+      "@/*": ["src/*"],
+      "@screens/*": ["src/screens/*"],
+      "@api/*": ["src/common/api/*"]
     }
   }
 }
