@@ -5,7 +5,8 @@ import FastImage from 'react-native-fast-image';
 import { Loading } from '../components/Loading';
 import { ErrorLoading } from '../components/Error';
 import { List } from '../components/List';
-import { colors } from '../theme/colors';
+import { w } from '../layout/metrics';
+
 
 const HomeScreen = () => {
   const { data, isLoading, isError, error } = useActivities();
@@ -20,23 +21,18 @@ const HomeScreen = () => {
   if (isError) return <ErrorLoading error={error.message} />;
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.content}>
+    <SafeAreaView className="flex-1 bg-white">
+      <View className="flex-1" style={styles.container}>
         <List data={data ?? []} />
       </View>
     </SafeAreaView>
   );
 };
 
-export default HomeScreen;
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: colors.white,
-  },
-  content: {
-    flex: 1,
-    padding: 20,
-  },
-});
+     paddingHorizontal: w(20)
+  }
+})
+
+export default HomeScreen;

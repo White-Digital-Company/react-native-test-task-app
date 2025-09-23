@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import { LocationIcon, StarIcon } from "../assets/icons";
-import { colors } from "../theme/colors";
-import { typography } from "../theme/typography";
+import { w } from "../layout/metrics";
+import { RFValue } from "react-native-responsive-fontsize";
 
 type Props = {
   name: string;
@@ -11,23 +11,23 @@ type Props = {
 
 export const ActivityInfo = ({ name, rating, price }: Props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.headerRow}>
-        <Text style={typography.subtitle}>{name}</Text>
-        <View style={styles.ratingRow}>
+    <View className="bg-lightGrey rounded-[16px]" style={styles.container}>
+      <View className="flex-row justify-between w-full">
+        <Text style={styles.name}>{name}</Text>
+        <View className="flex-row">
           <StarIcon />
-          <Text style={[typography.small, styles.ratingText]}>{rating}</Text>
+          <Text style={styles.rating}>{rating}</Text>
         </View>
       </View>
 
-      <View style={styles.footerRow}>
-        <View style={styles.locationRow}>
+      <View className="flex-row justify-between w-full" style={styles.bottomRow}>
+        <View className="flex-row">
           <LocationIcon />
-          <Text style={[typography.small, styles.locationText]}>Location</Text>
+          <Text style={styles.locationText}>Location</Text>
         </View>
-        <Text style={typography.regular}>
+        <Text style={styles.priceText}>
           ${price}.00 /{" "}
-          <Text style={[typography.small, styles.nightText]}>night</Text>
+          <Text className="text-grey" style={styles.nightText}>night</Text>
         </Text>
       </View>
     </View>
@@ -37,35 +37,31 @@ export const ActivityInfo = ({ name, rating, price }: Props) => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 85,
-    padding: 20,
-    borderRadius: 16,
-    backgroundColor: colors.lightGrey,
+    padding: w(20),
   },
-  headerRow: {
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
+  name: {
+    fontSize: RFValue(16),
+    fontFamily: "Abel",
   },
-  ratingRow: {
-    flexDirection: "row",
+  rating: {
+    fontSize: RFValue(12),
+    fontFamily: "Abel",
+    marginLeft: w(2),
   },
-  ratingText: {
-    marginLeft: 2,
-  },
-  footerRow: {
-    width: "100%",
-    marginTop: 12,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  locationRow: {
-    flexDirection: "row",
+  bottomRow: {
+    marginTop: w(12),
   },
   locationText: {
-    marginLeft: 6,
+    fontSize: RFValue(12),
+    fontFamily: "Abel",
+    marginLeft: w(6),
+  },
+  priceText: {
+    fontSize: RFValue(14),
+    fontFamily: "Abel",
   },
   nightText: {
-    color: colors.grey,
+    fontSize: RFValue(12),
+    fontFamily: "Abel",
   },
 });

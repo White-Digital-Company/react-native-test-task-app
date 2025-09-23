@@ -1,6 +1,6 @@
-import { typography } from "../theme/typography";
-import { colors } from "../theme/colors";
+import { w } from "../layout/metrics";
 import { Text, View, StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 type Props = {
   name: string;
@@ -11,21 +11,31 @@ type Props = {
 
 export const ActivityDetails = ({ name, price, location, description }: Props) => {
   return (
-    <View style={styles.container}>
-      <Text style={typography.title}>{name}</Text>
+    <View className="bg-white" style={styles.container}>
+      <Text className="text-black" style={styles.name}>
+        {name}
+      </Text>
 
-      <View style={styles.priceRow}>
-        <Text style={typography.subtitle}>${price}.00</Text>
-        <Text style={[typography.small, styles.includedText]}>
+      <View
+        className="flex-row justify-between border-b border-lightGrey"
+        style={styles.priceContainer}
+      >
+        <Text className="text-black" style={styles.price}>
+          ${price}.00
+        </Text>
+        <Text className="text-grey" style={styles.location}>
           Included {location} and fees
         </Text>
       </View>
 
-      <Text style={[typography.subtitle, styles.descriptionTitle]}>Description</Text>
+      <Text className="text-black" style={styles.descriptionTitle}>
+        Description
+      </Text>
       <Text
         numberOfLines={5}
         ellipsizeMode="tail"
-        style={[typography.regular, styles.descriptionText]}
+        className="text-grey"
+        style={styles.description}
       >
         {description}
       </Text>
@@ -35,25 +45,33 @@ export const ActivityDetails = ({ name, price, location, description }: Props) =
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 20,
-    marginBottom: "auto",
+    paddingVertical: w(20),
+    marginBottom: w(20),
   },
-  priceRow: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 20,
-    paddingBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.lightGrey,
+  name: {
+    fontSize: RFValue(20),
+    fontFamily: "Abel",
   },
-  includedText: {
-    color: colors.grey,
+  priceContainer: {
+    marginTop: w(20),
+    paddingBottom: w(20),
+  },
+  price: {
+    fontSize: RFValue(16),
+    fontFamily: "Abel",
+  },
+  location: {
+    fontSize: RFValue(12),
+    fontFamily: "Abel",
   },
   descriptionTitle: {
-    marginTop: 20,
+    fontSize: RFValue(16),
+    fontFamily: "Abel",
+    marginTop: w(20),
   },
-  descriptionText: {
-    marginTop: 10,
-    color: colors.grey,
+  description: {
+    fontSize: RFValue(14),
+    fontFamily: "Abel",
+    marginTop: w(10),
   },
 });

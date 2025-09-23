@@ -1,31 +1,30 @@
-import { typography } from "../theme/typography";
-import { colors } from "../theme/colors";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
+import { w } from "../layout/metrics";
+import { RFValue } from "react-native-responsive-fontsize";
 
 type Props = {
-    title: string; 
-    handlePress: () => void;
+  title: string;
+  handlePress: () => void;
 };
 
 export const Button = ({ title, handlePress }: Props) => {
-    return (
-        <TouchableOpacity style={styles.button} onPress={handlePress}>
-            <Text style={styles.text}>{title}</Text>
-        </TouchableOpacity>
-    );
+  return (
+    <TouchableOpacity
+      className="bg-black rounded-xl justify-center items-center"
+      style={styles.button}
+      onPress={handlePress}
+    >
+      <Text className="text-white font-abel" style={styles.text}>{title}</Text>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    button: {
-        width: '100%',
-        height: 56,
-        backgroundColor: colors.black,
-        borderRadius: 16,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    text: {
-        ...typography.subtitle,
-        color: colors.white,
-    },
+  button: {
+    width: "100%",
+    height: w(56),
+  },
+  text: {
+    fontSize: RFValue(16),
+  },
 });

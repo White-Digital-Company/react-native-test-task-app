@@ -1,8 +1,16 @@
 module.exports = function (api) {
   api.cache(true);
   return {
-    presets: ['module:@react-native/babel-preset'],
+    presets: ['module:metro-react-native-babel-preset'],
     plugins: [
+      [
+        '@babel/plugin-proposal-private-methods',
+        { loose: true }
+      ],
+      [
+        '@babel/plugin-proposal-class-properties',
+        { loose: true }
+      ],
       [
         'module-resolver',
         {
@@ -12,6 +20,7 @@ module.exports = function (api) {
           },
         },
       ],
+      'nativewind/babel',
     ],
   };
 };

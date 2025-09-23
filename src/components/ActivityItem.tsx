@@ -8,8 +8,8 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "@/screens/types/root";
 import { Favorite } from "./Favotire";
 import { useFavorite } from "../store/favorite";
-import { colors } from "../theme/colors";
-import { typography } from "../theme/typography";
+import { w } from "../layout/metrics";
+import { RFValue } from "react-native-responsive-fontsize";
 
 type Props = {
   data: Data;
@@ -22,7 +22,7 @@ const _ActivityItem = ({ data }: Props) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const navigation = useNavigation<ActivityInfoNavProp>();
-  
+
   const { favorite } = useFavorite();
   const isFavorite = favorite.find(item => item === id);
 
@@ -32,38 +32,36 @@ const _ActivityItem = ({ data }: Props) => {
 
   return (
     <TouchableOpacity onPress={navigateToActivityInfo}>
-      {isFavorite && (
-        <View style={styles.favoriteWrapper}>
-          <Favorite />
+      <View className="relative w-full">
+        {isFavorite && (
+          <View className="absolute z-50 left-5 top-5">
+            <Favorite />
+          </View>
+        )}
+
+        <View className="w-full rounded-[16px] bg-lightGrey justify-center items-center" style={styles.imageContainer}>
+          {loading && !error && (
+            <Text style={styles.loadingText}>Loading...</Text>
+          )}
+          {error && (
+            <Text style={styles.loadingText}>No Image Available</Text>
+          )}
+          {!error && (
+            <FastImage
+              source={{ uri: photoUrl }}
+              resizeMode="cover"
+              className="w-full rounded-[20px]"
+              style={styles.image}
+              onError={() => {
+                setError(true);
+                setLoading(false);
+              }}
+              onLoadStart={() => setLoading(true)}
+              onLoadEnd={() => setLoading(false)}
+            />
+          )}
         </View>
-      )}
-
-      {loading && !error && (
-        <View style={styles.loadingWrapper}>
-          <Text style={typography.subtitle}>Loading...</Text>
-        </View>
-      )}
-
-      {error && (
-        <View style={styles.errorWrapper}>
-          <Text style={typography.subtitle}>No Image Available</Text>
-        </View>
-      )}
-
-      {!error && (
-        <FastImage
-          source={{ uri: photoUrl }}
-          resizeMode="cover"
-          style={styles.image}
-          onError={() => {
-            setError(true);
-            setLoading(false);
-          }}
-          onLoadStart={() => setLoading(true)}
-          onLoadEnd={() => setLoading(false)}
-        />
-      )}
-
+      </View>
       <ActivityInfo name={name} rating={rating} price={price} />
     </TouchableOpacity>
   );
@@ -72,31 +70,16 @@ const _ActivityItem = ({ data }: Props) => {
 export const ActivityItem = memo(_ActivityItem);
 
 const styles = StyleSheet.create({
-  favoriteWrapper: {
-    position: "absolute",
-    zIndex: 100,
-    left: 20,
-    top: 20,
+  imageContainer: {
+    height: w(139),
   },
-  loadingWrapper: {
-    height: 224,
-    width: "100%",
-    backgroundColor: colors.lightGrey,
-    borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  errorWrapper: {
-    height: 139,
-    width: "100%",
-    backgroundColor: colors.lightGrey,
-    borderRadius: 16,
-    justifyContent: "center",
-    alignItems: "center",
+  loadingText: {
+    fontSize: RFValue(12),
   },
   image: {
-    width: "100%",
-    height: 139,
-    borderRadius: 16,
+    height: w(139),
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
 });
