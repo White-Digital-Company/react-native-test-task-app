@@ -3,12 +3,14 @@
 ## Overview
 
 This test is to evaluate:
+
 - **Layout Skills:** How you create and style layouts in React Native.
 - **API Integration:** How you connect and interact with API endpoints.
 - **Git Workflow:** How you work with Git, including the amount and quality of your commits, and the clarity of your commit messages.
 - **Code Quality:** Your ability to write clean, maintainable, and well-structured code following best practices.
 
 ### Tasks:
+
 1. Create layouts for two screens as specified in the provided Figma design.
 2. Connect the application to API.
 3. Utilize React Native Navigator.
@@ -18,10 +20,12 @@ This test is to evaluate:
 7. Use environment variables for configuration.
 
 ### Result
+
 - Created PR to main branch in forked repo.
 - Recording for iOS and Android, showcasing both large and small screen sizes.
 
 ### Setup
+
 1. Fork Repository and clone repo.
 2. Install Dependencies.
    ```bash
@@ -31,8 +35,8 @@ This test is to evaluate:
 4. Create PR to main and send the link to it back for review.
 5. Screen recordings can be provided any way.
 
-
 ### Acceptance Criteria
+
 - Two fully implemented screens as per the Figma design.
 - Integration with the provided API endpoints.
 - Navigation setup between screens.
@@ -43,7 +47,22 @@ This test is to evaluate:
 - Recorded videos of the application running on both iOS and Android for large and small screens.
 
 ### Resources
+
 - [Figma Design Link](https://www.figma.com/design/eMcgoiZbYd1PH5FioYfeQt/Test-Task-React-Native-Developer-WD?node-id=1-138&t=Aovesqj5WVWzlIZo-1)
 - [API Base URL](https://test-task-server-production-3257.up.railway.app/openApi)
+
+## Demo Videos
+
+### iOS Demo
+
+https://github.com/itcorporation/react-native-test-task-app/assets/video/ios.mov
+
+### Android Demo
+
+https://github.com/itcorporation/react-native-test-task-app/assets/video/android.mov
+
+### iPad Demo (Tablet Layout)
+
+https://github.com/itcorporation/react-native-test-task-app/assets/video/iPad.mov
 
 If you have any questions or need further clarification, feel free to reach out.

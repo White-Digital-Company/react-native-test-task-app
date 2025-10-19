@@ -11,7 +11,17 @@
     "paths": {
       "@screens/*": ["screens/*"],
       "@screens": ["screens/index"],
-      "@api/*": ["common/api/*"],
+      "@components/*": ["components/*"],
+      "@components": ["components/index"],
+      "@api/*": ["api/*"],
+      "@api": ["api/index"],
+      "@navigation/*": ["navigation/*"],
+      "@navigation": ["navigation/index"],
+      "@hooks/*": ["hooks/*"],
+      "@hooks": ["hooks/index"],
+      "@config/*": ["config/*"],
+      "@config": ["config/index"]
     }
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx", "nativewind-env.d.ts", "reset.d.ts", "src/types/env.d.ts", "src/types/svg.d.ts"]
 }

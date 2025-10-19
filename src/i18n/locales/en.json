@@ -1,0 +1,25 @@
+{
+  "welcome": "Welcome",
+  "home": "Home",
+  "activities": {
+    "title": "Activities",
+    "subtitle": "Discover amazing experiences",
+    "loading": "Loading activities...",
+    "error": "Failed to load activities. Please try again.",
+    "retry": "Tap to retry"
+  },
+  "activityDetails": {
+    "back": "←",
+    "location": "📍",
+    "rating": "⭐",
+    "priceSubtext": "Included taxes and fees",
+    "descriptionTitle": "Description",
+    "addToFavorites": "Add to Favorites",
+    "adding": "Adding...",
+    "successTitle": "Success!",
+    "errorTitle": "Error",
+    "errorMessage": "Failed to add to favorites. Please try again.",
+    "ok": "OK"
+  }
+}
+
