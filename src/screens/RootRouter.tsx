@@ -2,14 +2,15 @@ import {
   TransitionPresets,
   createStackNavigator,
 } from '@react-navigation/stack'
-import HomeScreen from './HomeScreen'
-import ActivityDetailsScreen from './ActivityDetailsScreen'
+import { HomeScreen } from './HomeScreen'
+import { ActivityDetailsScreen } from './ActivityDetailsScreen'
 import { RootStackParamList } from './types/root'
 import { SCREENS } from '@navigation'
+import { IconButton } from '@components/IconButton'
 
 const Stack = createStackNavigator<RootStackParamList>()
 
-const RootRouter = () => {
+export const RootRouter = () => {
   return (
     <Stack.Navigator
       initialRouteName={SCREENS.HOME}
@@ -28,10 +29,15 @@ const RootRouter = () => {
       <Stack.Screen
         name={SCREENS.ACTIVITY_DETAILS}
         component={ActivityDetailsScreen}
-        options={{ headerShown: false }}
+        options={() => ({
+          headerTransparent: true,
+          title: '',
+          headerLeft: IconButton,
+          headerLeftContainerStyle: {
+            paddingLeft: 16,
+          },
+        })}
       />
     </Stack.Navigator>
   )
 }
-
-export default RootRouter

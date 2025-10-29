@@ -1,4 +1,4 @@
-export interface Activity {
+export type Activity = {
   id: number
   photoUrl: string
   name: string
@@ -8,14 +8,14 @@ export interface Activity {
   rating: number
 }
 
-export interface FavoriteRequest {
+export type FavoriteRequest = {
   id: number
 }
 
-export interface FavoriteResponse {
+export type FavoriteResponse = {
   message: string
 }
 
-export interface ApiError {
+export type ApiError = {
   error: string
 }

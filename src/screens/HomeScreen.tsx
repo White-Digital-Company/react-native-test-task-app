@@ -1,8 +1,14 @@
-import { View, Text, FlatList, ActivityIndicator, Dimensions } from 'react-native'
+import {
+  View,
+  Text,
+  FlatList,
+  ActivityIndicator,
+  Dimensions,
+} from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useTranslation } from 'react-i18next'
-import ActivityCard from '@components/ActivityCard'
+import { ActivityCard } from '@components/ActivityCard'
 import { RootStackParamList } from './types/root'
 import { Activity } from '@api'
 import { useActivities } from '@hooks'
@@ -11,7 +17,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 type NavigationProp = StackNavigationProp<RootStackParamList>
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
   const { t } = useTranslation()
   const navigation = useNavigation<NavigationProp>()
   const {
@@ -86,10 +92,10 @@ const HomeScreen = () => {
         showsVerticalScrollIndicator={false}
         numColumns={numColumns}
         contentContainerStyle={{ paddingHorizontal: 8 }}
-        columnWrapperStyle={isTablet ? { justifyContent: 'space-between' } : undefined}
+        columnWrapperStyle={
+          isTablet ? { justifyContent: 'space-between' } : undefined
+        }
       />
     </SafeAreaView>
   )
 }
-
-export default HomeScreen

@@ -1,2 +1,3 @@
-export { default as ActivityCard } from './ActivityCard'
-export { Button } from './Button'
+export { ActivityCard } from './ActivityCard'
+export { CustomButton } from './CustomButton'
+export { IconButton } from './IconButton'

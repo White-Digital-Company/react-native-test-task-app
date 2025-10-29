@@ -1,5 +1,6 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useQuery, useMutation } from '@tanstack/react-query'
 import { activitiesApi } from '@api'
+import { queryClient } from '../lib/queryClient'
 
 export const queryKeys = {
   activities: ['activities'] as const,
@@ -17,14 +18,12 @@ export const useActivities = () => {
 }
 
 export const useAddToFavorites = () => {
-  const queryClient = useQueryClient()
-
   return useMutation({
     mutationFn: activitiesApi.addToFavorites,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: queryKeys.activities })
     },
-    onError: (error) => {
+    onError: error => {
       console.error('Failed to add to favorites:', error)
     },
   })

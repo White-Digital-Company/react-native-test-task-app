@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import StarIcon from '../../assets/svg/Star.svg'
 import MapPinIcon from '../../assets/svg/MapPin.svg'
 
-interface ActivityCardProps {
+type ActivityCardProps = {
   imageUrl: string
   title: string
   location: string
@@ -11,7 +11,7 @@ interface ActivityCardProps {
   onPress?: () => void
 }
 
-const ActivityCard = ({
+export const ActivityCard = ({
   imageUrl,
   title,
   location,
@@ -19,7 +19,6 @@ const ActivityCard = ({
   price,
   onPress,
 }: ActivityCardProps) => {
-
   return (
     <TouchableOpacity
       className="bg-white overflow-hidden mx-2 my-3 shadow-lg flex-1 md:flex-[0.5] md:max-w-[50%]"
@@ -27,11 +26,11 @@ const ActivityCard = ({
       onPress={onPress}
     >
       <View className="relative w-full h-[139px] md:h-[200px] bg-Neutral-10">
-          <Image
-            source={{ uri: imageUrl }}
-            className="w-full h-[139px] md:h-[200px] rounded-3xl"
-            resizeMode="cover"
-          />
+        <Image
+          source={{ uri: imageUrl }}
+          className="w-full h-[139px] md:h-[200px] rounded-3xl"
+          resizeMode="cover"
+        />
       </View>
 
       <View className="p-5 md:p-7 rounded-3xl h-[85px] md:h-[120px] mt-2 bg-Neutral-10">
@@ -42,8 +41,8 @@ const ActivityCard = ({
             </Text>
             <View className="flex-row items-center">
               <MapPinIcon width={16} height={16} />
-              <Text 
-                className="text-xs md:text-lg text-Neutral-100 ml-1 font-sf-pro" 
+              <Text
+                className="text-xs md:text-lg text-Neutral-100 ml-1 font-sf-pro"
                 numberOfLines={1}
               >
                 {location}
@@ -62,7 +61,9 @@ const ActivityCard = ({
               <Text className="text-sm md:text-xl text-black font-sf-pro">
                 ${price.toFixed(2)}
               </Text>
-              <Text className="text-xs md:text-lg text-Neutral-75 ml-1 font-sf-pro"> / night</Text>
+              <Text className="text-xs md:text-lg text-Neutral-75 ml-1 font-sf-pro">
+                / night
+              </Text>
             </View>
           </View>
         </View>
@@ -70,5 +71,3 @@ const ActivityCard = ({
     </TouchableOpacity>
   )
 }
-
-export default ActivityCard

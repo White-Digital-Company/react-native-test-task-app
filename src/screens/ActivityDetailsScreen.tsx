@@ -1,24 +1,15 @@
-import {
-  View,
-  Text,
-  Image,
-  ScrollView,
-  Pressable,
-  Alert,
-} from 'react-native'
-import ArrowIcon from '../../assets/svg/Arrow.svg'
-import { useNavigation, useRoute } from '@react-navigation/native'
+import { View, Text, Image, ScrollView, Alert } from 'react-native'
+import { RouteProp, useRoute } from '@react-navigation/native'
 import { useTranslation } from 'react-i18next'
-import { RootStackScreenProps } from './types/root'
+import { RootStackParamList } from './types/root'
 import { useAddToFavorites } from '@hooks'
 import { FavoriteResponse } from '@api'
-import { Button } from '@components/Button'
+import { CustomButton } from '../components/CustomButton'
 
-type ActivityDetailsRouteProp = RootStackScreenProps<'ActivityDetails'>['route']
+type ActivityDetailsRouteProp = RouteProp<RootStackParamList, 'ActivityDetails'>
 
-const ActivityDetailsScreen = () => {
+export const ActivityDetailsScreen = () => {
   const { t } = useTranslation()
-  const navigation = useNavigation()
   const route = useRoute<ActivityDetailsRouteProp>()
   const { activity } = route.params
 
@@ -55,12 +46,6 @@ const ActivityDetailsScreen = () => {
           className="w-full h-[450px] md:h-[600px] rounded-b-3xl"
           resizeMode="cover"
         />
-        <Pressable
-          onPress={() => navigation.goBack()}
-          className="absolute top-12 left-4 bg-white rounded-full w-12 h-12 items-center justify-center shadow-lg"
-        >
-          <ArrowIcon width={24} height={24} />
-        </Pressable>
       </View>
 
       <ScrollView className="flex-1 px-5 pt-5">
@@ -89,12 +74,11 @@ const ActivityDetailsScreen = () => {
         </View>
 
         <View className="mb-5 bg-Neutral-15 rounded-3xl h-[1px] w-full"></View>
-
       </ScrollView>
 
       <View className="px-5 pb-6">
-        <Button 
-          type='primary' 
+        <CustomButton
+          type="primary"
           isAddingToFavorites={addToFavoritesMutation.isPending}
           handleAddToFavorites={handleAddToFavorites}
           textButton={t('activityDetails.addToFavorites')}
@@ -103,5 +87,3 @@ const ActivityDetailsScreen = () => {
     </View>
   )
 }
-
-export default ActivityDetailsScreen
